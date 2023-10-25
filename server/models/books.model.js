@@ -1,14 +1,17 @@
 const mongoose = require("mongoose")
 
 const BookSchema = new mongoose.Schema({
-    book: {
-        type: String
+    title: {
+        type: String,
+        required: true
     },
     author: {
-        type: String
+        type: String,
+        required: true
     },
     publishYear: {
-        type: String
+        type: Number,
+        required: true
     }
 }, { timestamps: true })
 

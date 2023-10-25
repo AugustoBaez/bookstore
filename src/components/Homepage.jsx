@@ -13,10 +13,10 @@ export const Homepage = () => {
 
     useEffect(() => {
         setLoading(true)
-        axios.get("http://localhost:8000/books")
+        axios.get("http://localhost:8000/api/books")
             .then((res) => {
                 console.log(res)
-                setBooks(res.data.data)
+                setBooks(res.data.book)
                 setLoading(false)
             })
             .catch((error) => {

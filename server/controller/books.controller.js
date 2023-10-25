@@ -2,7 +2,7 @@ const Books = require("../models/books.model")
 
 module.exports.findAllBooks = (req, res) => {
     Books.find()
-        .then((books) => res.json({ books }))
+        .then((books) => res.json({ book: books }))
         .catch((error) => res.json({ message: "error finding books", error }))
 }
 
