@@ -15,7 +15,6 @@ export const Homepage = () => {
         setLoading(true)
         axios.get("http://localhost:8000/api/books")
             .then((res) => {
-                console.log(res)
                 setBooks(res.data.book)
                 setLoading(false)
             })
@@ -46,7 +45,6 @@ export const Homepage = () => {
                                 <th className='border border-slate-600 rounded-md max-md:hidden'>Publish Year</th>
                                 <th className='border border-slate-600 rounded-md'>Operations</th>
                             </tr>
-
                         </thead>
                         <tbody>
                             {books.map((book, index) => (
@@ -68,10 +66,10 @@ export const Homepage = () => {
                                             <Link to={`/books/details/${book._id}`}>
                                                 <BsInfoCircle className='text-2xl text-green-800' />
                                             </Link>
-                                            <Link to={`/books/details/${book._id}`}>
+                                            <Link to={`/books/edit/${book._id}`}>
                                                 <AiOutlineEdit className='text-2xl text-yellow-600' />
                                             </Link>
-                                            <Link to={`/books/details/${book._id}`}>
+                                            <Link to={`/books/delete/${book._id}`}>
                                                 <MdOutlineDelete className='text-2xl text-red-600' />
                                             </Link>
                                         </div>
