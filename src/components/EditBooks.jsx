@@ -3,6 +3,7 @@ import BackButton from './BackButton'
 import Spinner from './Spinner'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
+import { useSnackbar } from 'notistack'
 
 const EditBooks = () => {
   const [title, setTitle] = useState('')
@@ -11,6 +12,7 @@ const EditBooks = () => {
   const [publishYear, setPublishYear] = useState('')
   const { id } = useParams()
   const navigate = useNavigate()
+  const { enqueueSnackbar } = useSnackbar()
 
   const handleEditBook = () => {
     setLoading(true)
@@ -19,12 +21,13 @@ const EditBooks = () => {
     }
     axios.put(`http://localhost:8000/api/books/update/${id}`, book)
       .then((res) => {
-        console.log(res)
         setLoading(false)
+        enqueueSnackbar("Book edited successfully", { variant: 'success' })
         navigate('/')
       })
       .catch((error) => {
         setLoading(false)
+        enqueueSnackbar("Error", { variant: 'error' })
         console.log("error adding new book", error)
       })
   }
