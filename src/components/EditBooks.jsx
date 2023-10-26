@@ -12,7 +12,7 @@ const EditBooks = () => {
   const { id } = useParams()
   const navigate = useNavigate()
 
-  const handleSaveBook = () => {
+  const handleEditBook = () => {
     setLoading(true)
     const book = {
       title, author, publishYear
@@ -64,7 +64,7 @@ const EditBooks = () => {
           <label htmlFor="" className='text-xl mr-4 text-gray-400'>Publish Year</label>
           <input type="text" value={publishYear} onChange={(e) => setPublishYear(e.target.value)} className='border-2 border-gray-500 py-2 px-2 w-full' />
         </div>
-        <button className='p-2 bg-sky-300 m-8' onClick={handleSaveBook}>
+        <button className='p-2 bg-sky-300 m-8' onClick={handleEditBook}>
           Save
         </button>
       </div>
