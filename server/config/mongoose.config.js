@@ -1,6 +1,9 @@
 const mongoose = require("mongoose")
+require('dotenv').config()
+const mongodbUrl = process.env.mongoDBURL;
+console.log(mongodbUrl)
 
-mongoose.connect("mongodb://127.0.0.1:27017/bookstore", {
+mongoose.connect(mongodbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
